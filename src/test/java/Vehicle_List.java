@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.FileWriter;
@@ -19,8 +20,8 @@ public class Vehicle_List {
 
         try {
 
-            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-            System.setProperty("webdriver.chrome.driver", "");// Bu alana driver’ımızın "chromedriver.exe" path’ini koymanız gerekiyor
+            ChromeOptions capabilities = new ChromeOptions();
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\SedatCan\\Selenium_Sahibinden_araclistesi\\ChromeWebDriver\\chromedriver.exe");// Bu alana driver’ımızın "chromedriver.exe" path’ini koymanız gerekiyor
             driver = new ChromeDriver(capabilities);
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
@@ -46,7 +47,7 @@ public class Vehicle_List {
             driver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]")).click();
             driver.findElement(By.xpath("//*[@id=\"container\"]/div[3]/div/aside/div[1]/nav/ul[4]/li[2]/ul/li[17]/label[1]")).click();
             List<WebElement> category = driver.findElements(By.xpath("//*[@id=\"container\"]/div[3]/div/aside/div[1]/nav/ul[4]/li[2]/ul/li/a"));
-            FileWriter fwriter = new FileWriter("C:\\Users\\?????\\Selenium_Sahibinden_araclistesi\\src\\test\\java\\Araclistesi.txt", false);
+            FileWriter fwriter = new FileWriter("C:\\Users\\sedatcan\\Selenium_Sahibinden_araclistesi\\src\\test\\java\\Araclistesi.txt", false);
             // ????? soru işaretli yere kendi bilgisayarınızın adınız yazmanız gerekiyor
 
             for (int i = 0; i < category.size(); i++) {
